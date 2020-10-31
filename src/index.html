@@ -11,19 +11,59 @@
     <script type="module" src="/build/co2-web-components.esm.js"></script>
     <script nomodule src="/build/co2-web-components.js"></script>
   </head>
+  <style type="text/css">
+    .inputs {
+      display: flex;
+      flex-direction: column;
+    }
+    .inputs > co2-input {
+      box-sizing: border-box;
+      padding: 1rem;
+    }
+  </style>
   <body>
-    <!-- <my-component firsst="Stencil" last="'Don't call me a framework' JS"></my-component> -->
-    <!-- <co2-label text="this is a label"></co2-label> -->
-    <co2-input
-      label="this is a label"
-      type="text"
-      name="input-1"
-      value="this is the value"
-    ></co2-input>
+    <div class="inputs">
+      <co2-input
+        id="nonLabelledTextInput"
+        type="text"
+        name="nonLabelledTextInput"
+        value="non labeled input"
+        is-disabled="false"
+      ></co2-input>
+      <co2-input
+        id="labelledTextInput"
+        label="this is a text input"
+        type="text"
+        name="labelledTextInput"
+        value="labeled input"
+        is-disabled="false"
+      ></co2-input>
+      <co2-input
+        id="labelledCheckboxInput"
+        label="this is a checkbox input"
+        type="checkbox"
+        name="labelledCheckboxInput"
+        is-checked="true"
+        is-disabled="false"
+      ></co2-input>
+      <co2-input
+        id="nonLabelledCheckboxInput"
+        type="checkbox"
+        name="nonLabelledCheckboxInput"
+        is-checked="false"
+        is-disabled="false"
+      ></co2-input>
+    </div>
   </body>
   <script>
     document
-      .querySelector('co2-input')
-      .addEventListener('scaleChange', console.log);
+      .querySelector('#nonLabelledTextInput')
+      .addEventListener('scaleChange', event => console.log('onChange', event));
+    document
+      .querySelector('#labelledTextInput')
+      .addEventListener('scaleBlur', event => console.log('onBlur', event));
+    document
+      .querySelector('#checkboxInput')
+      .addEventListener('scaleChange', event => console.log('onChange', event));
   </script>
 </html>

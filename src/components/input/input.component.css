@@ -1,6 +1,6 @@
 :host {
   display: block;
 }
-input {
-  margin-left: 5px;
+label > input[type='text'] {
+  margin-left: 0.5rem;
 }

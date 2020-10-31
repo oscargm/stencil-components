@@ -5,31 +5,34 @@
  * It contains typing information for all components that exist in this project.
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
+import { InputTypes, MinMaxValue } from "./components/input/model";
 export namespace Components {
     interface Co2Input {
         /**
           * The label
          */
-        "disabled": boolean;
+        "isChecked"?: boolean;
         /**
           * The label
          */
-        "label": string;
+        "isDisabled"?: boolean;
+        /**
+          * The label
+         */
+        "label"?: string;
+        "maxLength"?: number;
+        "maxValue"?: MinMaxValue;
+        "minLength"?: number;
+        "minValue"?: MinMaxValue;
         /**
           * The name
          */
-        "name": string;
-        "type"?: 'email' | 'hidden' | 'number' | 'password' | 'tel' | 'text' | 'checkbox' | 'radio' | 'url';
+        "name"?: string;
+        "type"?: InputTypes;
         /**
           * The value
          */
         "value"?: string;
-    }
-    interface Co2Label {
-        /**
-          * The text
-         */
-        "text": string;
     }
     interface MyComponent {
         /**
@@ -53,12 +56,6 @@ declare global {
         prototype: HTMLCo2InputElement;
         new (): HTMLCo2InputElement;
     };
-    interface HTMLCo2LabelElement extends Components.Co2Label, HTMLStencilElement {
-    }
-    var HTMLCo2LabelElement: {
-        prototype: HTMLCo2LabelElement;
-        new (): HTMLCo2LabelElement;
-    };
     interface HTMLMyComponentElement extends Components.MyComponent, HTMLStencilElement {
     }
     var HTMLMyComponentElement: {
@@ -67,7 +64,6 @@ declare global {
     };
     interface HTMLElementTagNameMap {
         "co2-input": HTMLCo2InputElement;
-        "co2-label": HTMLCo2LabelElement;
         "my-component": HTMLMyComponentElement;
     }
 }
@@ -76,30 +72,33 @@ declare namespace LocalJSX {
         /**
           * The label
          */
-        "disabled"?: boolean;
+        "isChecked"?: boolean;
+        /**
+          * The label
+         */
+        "isDisabled"?: boolean;
         /**
           * The label
          */
         "label"?: string;
+        "maxLength"?: number;
+        "maxValue"?: MinMaxValue;
+        "minLength"?: number;
+        "minValue"?: MinMaxValue;
         /**
           * The name
          */
         "name"?: string;
+        "onScaleBlur"?: (event: CustomEvent<any>) => void;
         /**
           * The onChange
          */
         "onScaleChange"?: (event: CustomEvent<InputEvent>) => void;
-        "type"?: 'email' | 'hidden' | 'number' | 'password' | 'tel' | 'text' | 'checkbox' | 'radio' | 'url';
+        "type"?: InputTypes;
         /**
           * The value
          */
         "value"?: string;
-    }
-    interface Co2Label {
-        /**
-          * The text
-         */
-        "text"?: string;
     }
     interface MyComponent {
         /**
@@ -117,7 +116,6 @@ declare namespace LocalJSX {
     }
     interface IntrinsicElements {
         "co2-input": Co2Input;
-        "co2-label": Co2Label;
         "my-component": MyComponent;
     }
 }
@@ -126,7 +124,6 @@ declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
             "co2-input": LocalJSX.Co2Input & JSXBase.HTMLAttributes<HTMLCo2InputElement>;
-            "co2-label": LocalJSX.Co2Label & JSXBase.HTMLAttributes<HTMLCo2LabelElement>;
             "my-component": LocalJSX.MyComponent & JSXBase.HTMLAttributes<HTMLMyComponentElement>;
         }
     }
