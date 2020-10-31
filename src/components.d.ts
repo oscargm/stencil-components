@@ -9,15 +9,15 @@ import { InputTypes, MinMaxValue } from "./components/input/model";
 export namespace Components {
     interface Co2Input {
         /**
-          * The label
+          * HTML checked attribute
          */
         "isChecked"?: boolean;
         /**
-          * The label
+          * HTML disabled attribute
          */
         "isDisabled"?: boolean;
         /**
-          * The label
+          * Label text
          */
         "label"?: string;
         "maxLength"?: number;
@@ -25,12 +25,12 @@ export namespace Components {
         "minLength"?: number;
         "minValue"?: MinMaxValue;
         /**
-          * The name
+          * HTML name attribute
          */
         "name"?: string;
         "type"?: InputTypes;
         /**
-          * The value
+          * HTML value attribute
          */
         "value"?: string;
     }
@@ -70,15 +70,15 @@ declare global {
 declare namespace LocalJSX {
     interface Co2Input {
         /**
-          * The label
+          * HTML checked attribute
          */
         "isChecked"?: boolean;
         /**
-          * The label
+          * HTML disabled attribute
          */
         "isDisabled"?: boolean;
         /**
-          * The label
+          * Label text
          */
         "label"?: string;
         "maxLength"?: number;
@@ -86,17 +86,20 @@ declare namespace LocalJSX {
         "minLength"?: number;
         "minValue"?: MinMaxValue;
         /**
-          * The name
+          * HTML name attribute
          */
         "name"?: string;
-        "onScaleBlur"?: (event: CustomEvent<any>) => void;
         /**
-          * The onChange
+          * HTML onBlur event
+         */
+        "onScaleBlur"?: (event: CustomEvent<FocusEvent>) => void;
+        /**
+          * HTML onChange|onInput events (depending on type)
          */
         "onScaleChange"?: (event: CustomEvent<InputEvent>) => void;
         "type"?: InputTypes;
         /**
-          * The value
+          * HTML value attribute
          */
         "value"?: string;
     }

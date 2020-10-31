@@ -10,46 +10,64 @@ import { InputTypes, MinMaxValue } from './model';
 })
 export class Input {
   /**
-   * The name
+   * HTML name attribute
    */
   @Prop() name?: string;
 
   /**
-   * The label
+   * Label text
    */
   @Prop() label?: string;
 
   /**
-   * The label
+   * HTML checked attribute
    */
   @Prop() isChecked?: boolean;
 
   /**
-   * The label
+   * HTML disabled attribute
    */
   @Prop() isDisabled?: boolean;
 
   /**
-   * The value
+   * HTML value attribute
    */
   @Prop({ mutable: true }) value?: string;
-  /*
-   * The type
-   */
-  @Prop() type?: InputTypes;
 
+  /*
+   * HTML input type attribute
+   */
+  @Prop() type?: InputTypes = InputTypes.TEXT;
+
+  /*
+   * HTML minLength attribute
+   */
   @Prop() minLength?: number;
+
+  /*
+   * HTML maxLength attribute
+   */
   @Prop() maxLength?: number;
 
+  /*
+   * HTML min attribute
+   */
   @Prop() minValue?: MinMaxValue;
+
+  /*
+   * HTML max attribute
+   */
   @Prop() maxValue?: MinMaxValue;
 
   /**
-   * The onChange
+   * HTML onChange|onInput events (depending on type)
    */
   @Event() scaleChange?: EventEmitter<InputEvent>;
 
-  @Event() scaleBlur?;
+  /**
+   * HTML onBlur event
+   */
+  @Event() scaleBlur?: EventEmitter<FocusEvent>;
 
   handleChange(event) {
     this.value = event.target ? event.target.value : this.value;
