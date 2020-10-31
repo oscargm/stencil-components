@@ -9,16 +9,17 @@ interface CheckboxInputProps {
 export const CheckboxInput = (props: CheckboxInputProps) => {
   const { labelText, name, checked, onChange, isDisabled } = props;
   return labelText ? (
-    <label htmlFor={name}>
+    <label htmlFor={name} class="control control--checkbox">
       {labelText}:
       <input
         name={name}
         type={'checkbox'}
         checked={checked}
         // onInput={event => onInput(event)}
-        onChange={event => onChange(event)}
+        //onChange={event => onChange(event)}
         disabled={isDisabled}
       />
+      <div class="control__indicator" onClick={() => onChange(checked)}></div>
     </label>
   ) : (
     <input

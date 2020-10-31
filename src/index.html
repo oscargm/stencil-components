@@ -56,14 +56,19 @@
     </div>
   </body>
   <script>
-    document
-      .querySelector('#nonLabelledTextInput')
-      .addEventListener('scaleChange', event => console.log('onChange', event));
-    document
-      .querySelector('#labelledTextInput')
-      .addEventListener('scaleBlur', event => console.log('onBlur', event));
-    document
-      .querySelector('#checkboxInput')
-      .addEventListener('scaleChange', event => console.log('onChange', event));
+    document.querySelectorAll('co2-input[type="text"]').forEach(el => {
+      el.addEventListener('scaleChange', event =>
+        console.log('textInput change', event),
+      );
+      el.addEventListener('scaleBlur', event =>
+        console.log('textInput blur', event),
+      );
+    });
+    document.querySelectorAll('co2-input[type="checkbox"]').forEach(el => {
+      el.setAttribute('checked', false);
+      el.addEventListener('scaleChange', event => {
+        console.log('checkbox change', event, el);
+      });
+    });
   </script>
 </html>

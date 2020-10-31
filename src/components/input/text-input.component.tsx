@@ -4,9 +4,9 @@ interface TextInputProps {
   labelText?: string;
   name?: string;
   value?: string;
-  onInput?: (event) => void;
+  onInput?: (value) => void;
   isDisabled?: boolean;
-  onBlur?: (event) => void;
+  onBlur?: (value) => void;
   type: InputTypes;
   minValue?: MinMaxValue;
   maxValue?: MinMaxValue;
@@ -47,9 +47,15 @@ export const TextInput = (props: TextInputProps) => {
     <input
       name={name}
       type={type}
-      onInput={event => onInput(event)}
+      onInput={event => {
+        const customEvent = event as any;
+        onInput(customEvent.target.value);
+      }}
       disabled={isDisabled}
-      onBlur={event => onBlur(event)}
+      onBlur={event => {
+        const customEvent = event as any;
+        onBlur(customEvent.target.value);
+      }}
       min={minValue}
       max={maxValue}
       minLength={minLength}

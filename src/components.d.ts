@@ -92,11 +92,11 @@ declare namespace LocalJSX {
         /**
           * HTML onBlur event
          */
-        "onScaleBlur"?: (event: CustomEvent<FocusEvent>) => void;
+        "onScaleBlur"?: (event: CustomEvent<any>) => void;
         /**
           * HTML onChange|onInput events (depending on type)
          */
-        "onScaleChange"?: (event: CustomEvent<InputEvent>) => void;
+        "onScaleChange"?: (event: CustomEvent<any>) => void;
         "type"?: InputTypes;
         /**
           * HTML value attribute

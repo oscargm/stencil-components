@@ -1,0 +1,9 @@
+html {
+  --color--white: #ffffff;
+  --color--black: #000000;
+  --color--light-grey: #e6e6e6;
+  --color--grey: #cccccc;
+  --color--dark-grey: #7b7b7b;
+  --color--primary: #2aa1c0;
+  --color--secondary: #0e647d;
+}

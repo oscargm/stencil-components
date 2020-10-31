@@ -1,4 +1,4 @@
-import { Component, Prop, h, Event, EventEmitter } from '@stencil/core';
+import { Component, Prop, h, Event, EventEmitter, Watch } from '@stencil/core';
 import { TextInput } from './text-input.component';
 import { CheckboxInput } from './checkbox-input.component';
 import { InputTypes, MinMaxValue } from './model';
@@ -62,19 +62,32 @@ export class Input {
   /**
    * HTML onChange|onInput events (depending on type)
    */
-  @Event() scaleChange?: EventEmitter<InputEvent>;
+  @Event() scaleChange?: EventEmitter<any>;
 
   /**
    * HTML onBlur event
    */
-  @Event() scaleBlur?: EventEmitter<FocusEvent>;
+  @Event() scaleBlur?: EventEmitter<any>;
 
-  handleChange(event) {
-    this.value = event.target ? event.target.value : this.value;
-    this.scaleChange?.emit(event);
+  handleChange(value) {
+    switch (this.type) {
+      case InputTypes.CHECKBOX:
+        this.isChecked = !value;
+        break;
+      case InputTypes.TEXT:
+      default:
+        this.value = value;
+        break;
+    }
+    this.scaleChange?.emit(value);
   }
   handleBlur(event) {
     this.scaleBlur?.emit(event);
+  }
+
+  @Watch('isChecked')
+  watchHandler(newValue: boolean, oldValue: boolean) {
+    console.log('oldValue, newValue: ', oldValue, newValue);
   }
 
   render() {
