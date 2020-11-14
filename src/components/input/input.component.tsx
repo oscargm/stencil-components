@@ -22,17 +22,17 @@ export class Input {
   /**
    * HTML checked attribute
    */
-  @Prop() isChecked?: boolean;
+  @Prop({reflect:true }) isChecked?: boolean = false;
 
   /**
    * HTML disabled attribute
    */
-  @Prop() isDisabled?: boolean;
+  @Prop({reflect:true }) isDisabled?: boolean = false;
 
   /**
    * HTML value attribute
    */
-  @Prop({ mutable: true }) value?: string;
+  @Prop({ mutable: true}) value?: string;
 
   /*
    * HTML input type attribute
@@ -89,6 +89,9 @@ export class Input {
   watchHandler(newValue: boolean, oldValue: boolean) {
     console.log('oldValue, newValue: ', oldValue, newValue);
   }
+  componentWillLoad(){
+    console.log(this.name, 'is-checked?¿', this.isChecked);
+  }
 
   render() {
     switch (this.type) {
@@ -97,9 +100,9 @@ export class Input {
           <CheckboxInput
             labelText={this.label}
             name={this.name}
-            checked={this.isChecked}
+            isChecked={this.isChecked}
             onChange={event => this.handleChange(event)}
-            isDisabled={this.isDisabled}
+            disabled={this.isDisabled}
           />
         );
       case InputTypes.URL:
@@ -120,7 +123,7 @@ export class Input {
             maxLength={this.maxLength}
             onBlur={event => this.handleBlur(event)}
             onInput={event => this.handleChange(event)}
-            isDisabled={this.isDisabled}
+            disabled={this.isDisabled}
           />
         );
     }

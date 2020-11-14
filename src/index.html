@@ -28,7 +28,6 @@
         type="text"
         name="nonLabelledTextInput"
         value="non labeled input"
-        is-disabled="false"
       ></co2-input>
       <co2-input
         id="labelledTextInput"
@@ -36,22 +35,18 @@
         type="text"
         name="labelledTextInput"
         value="labeled input"
-        is-disabled="false"
+        is-disabled
       ></co2-input>
       <co2-input
         id="labelledCheckboxInput"
-        label="this is a checkbox input"
+        label="Enabled input"
         type="checkbox"
         name="labelledCheckboxInput"
-        is-checked="true"
-        is-disabled="false"
       ></co2-input>
       <co2-input
         id="nonLabelledCheckboxInput"
         type="checkbox"
         name="nonLabelledCheckboxInput"
-        is-checked="false"
-        is-disabled="false"
       ></co2-input>
     </div>
   </body>
@@ -65,9 +60,13 @@
       );
     });
     document.querySelectorAll('co2-input[type="checkbox"]').forEach(el => {
-      el.setAttribute('checked', false);
       el.addEventListener('scaleChange', event => {
-        console.log('checkbox change', event, el);
+        console.log('checkbox change', event.detail, el.id);
+        if (el.id === 'labelledCheckboxInput') {
+          document
+            .querySelector('#labelledTextInput')
+            .setAttribute('is-disabled', event.detail);
+        }
       });
     });
   </script>

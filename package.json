@@ -27,6 +27,7 @@
   "license": "MIT",
   "devDependencies": {
     "@types/jest": "^26.0.15",
+    "prettier": "^2.1.2",
     "puppeteer": "^5.4.1"
   }
 }
