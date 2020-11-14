@@ -22,22 +22,22 @@ export class Input {
   /**
    * HTML checked attribute
    */
-  @Prop({reflect:true }) isChecked?: boolean = false;
+  @Prop({ reflect: true }) isChecked?: boolean = false;
 
   /**
    * HTML disabled attribute
    */
-  @Prop({reflect:true }) isDisabled?: boolean = false;
+  @Prop({ reflect: true }) isDisabled?: boolean = false;
 
   /**
    * HTML value attribute
    */
-  @Prop({ mutable: true}) value?: string;
+  @Prop({ mutable: true }) value?: string;
 
   /*
    * HTML input type attribute
    */
-  @Prop() type?: InputTypes = InputTypes.TEXT;
+  @Prop() type?: string = InputTypes.TEXT;
 
   /*
    * HTML minLength attribute

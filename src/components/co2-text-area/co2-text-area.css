@@ -1,0 +1,22 @@
+:host {
+  display: block;
+}
+.message-input {
+  background: rgba(40, 40, 40, 0.4);
+  border: 1px solid black;
+  outline: none !important;
+  resize: none;
+  color: rgba(255, 255, 255, 0.7);
+  /* font-size: 11px; */
+  margin: 0;
+  padding: 2rem;
+  /* width: 265px; */
+  border-radius: 15px;
+  width: 100%;
+  min-height: 4rem;
+  box-sizing: border-box;
+}
+
+textarea:focus:-webkit-placeholder {
+  color: transparent;
+}

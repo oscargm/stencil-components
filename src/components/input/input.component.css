@@ -11,10 +11,9 @@
 .control {
   display: block;
   position: relative;
-  padding-left: 30px;
-  margin-bottom: 15px;
+  padding-right: 30px;
   cursor: pointer;
-  font-size: 18px;
+  /* font-size: 18px; */
 }
 .control input {
   position: absolute;
@@ -24,10 +23,11 @@
 .control__indicator {
   position: absolute;
   top: 2px;
-  left: 0;
-  height: 20px;
-  width: 20px;
+  right: 0;
+  height: 15px;
+  width: 15px;
   background: var(--color--light-grey);
+  border: 1px solid var(--color--primary);
 }
 .control--radio .control__indicator {
   border-radius: 50%;
@@ -57,10 +57,10 @@
   display: block;
 }
 .control--checkbox .control__indicator:after {
-  left: 8px;
-  top: 4px;
+  right: 5px;
+  top: 3px;
   width: 3px;
-  height: 8px;
+  height: 5px;
   border: solid var(--color--white);
   border-width: 0 2px 2px 0;
   transform: rotate(45deg);
@@ -69,7 +69,7 @@
   border-color: var(--color--dark-grey);
 }
 .control--radio .control__indicator:after {
-  left: 7px;
+  right: 7px;
   top: 7px;
   height: 6px;
   width: 6px;
@@ -82,7 +82,6 @@
 .select {
   position: relative;
   display: inline-block;
-  margin-bottom: 15px;
   width: 100%;
 }
 .select select {
@@ -114,12 +113,12 @@
 .select__arrow {
   position: absolute;
   top: 16px;
-  right: 15px;
+  right: 17px;
   width: 0;
   height: 0;
   pointer-events: none;
   border-style: solid;
-  border-width: 8px 5px 0 5px;
+  border-width: 5px 3px 0 3px;
   border-color: var(--color--dark-grey) transparent transparent transparent;
 }
 .select select:hover ~ .select__arrow,

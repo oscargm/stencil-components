@@ -1,5 +1,5 @@
 import { h } from '@stencil/core';
-import { InputTypes, MinMaxValue } from './model';
+import { MinMaxValue } from './model';
 interface TextInputProps {
   labelText?: string;
   name?: string;
@@ -7,7 +7,7 @@ interface TextInputProps {
   onInput?: (value) => void;
   disabled?: boolean;
   onBlur?: (value) => void;
-  type: InputTypes;
+  type: string;
   minValue?: MinMaxValue;
   maxValue?: MinMaxValue;
   minLength?: number;

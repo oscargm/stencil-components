@@ -28,3 +28,5 @@ export const enum InputTypes {
   IMAGE = 'image',
   RANGE = 'range',
 }
+
+export type InputType = keyof typeof InputTypes;

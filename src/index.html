@@ -12,62 +12,71 @@
     <script nomodule src="/build/co2-web-components.js"></script>
   </head>
   <style type="text/css">
-    .inputs {
+    html,
+    body {
+      width: 100%;
+      height: 100%;
+      position: relative;
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      background-color: cornflowerblue;
+    }
+    .container {
+      padding-top: 3rem;
+      width: 800px;
+      margin: 0 auto;
+    }
+    .container,
+    .todos,
+    .add-todo-form {
       display: flex;
       flex-direction: column;
+      padding: 1rem 0;
     }
-    .inputs > co2-input {
-      box-sizing: border-box;
-      padding: 1rem;
+    .add-todo-form {
+      min-height: 12rem;
+      justify-content: space-around;
+    }
+    .add-todo-form:last-child {
+      /* padding-top: 1.5rem; */
+      text-align: right;
     }
   </style>
   <body>
-    <div class="inputs">
-      <co2-input
-        id="nonLabelledTextInput"
-        type="text"
-        name="nonLabelledTextInput"
-        value="non labeled input"
-      ></co2-input>
-      <co2-input
-        id="labelledTextInput"
-        label="this is a text input"
-        type="text"
-        name="labelledTextInput"
-        value="labeled input"
-        is-disabled
-      ></co2-input>
-      <co2-input
-        id="labelledCheckboxInput"
-        label="Enabled input"
-        type="checkbox"
-        name="labelledCheckboxInput"
-      ></co2-input>
-      <co2-input
-        id="nonLabelledCheckboxInput"
-        type="checkbox"
-        name="nonLabelledCheckboxInput"
-      ></co2-input>
-    </div>
+    <section class="container">
+      <div class="todos">
+        <co2-todo index="1" task="task-1" is-done="false" />
+      </div>
+      <div class="add-todo-form">
+        <co2-text-area value="Some important todo" value=""></co2-text-area>
+        <co2-button text="Add todo"></co2-button>
+      </div>
+    </section>
   </body>
   <script>
-    document.querySelectorAll('co2-input[type="text"]').forEach(el => {
-      el.addEventListener('scaleChange', event =>
+    document
+      .querySelector('co2-todo')
+      .addEventListener('scaleChange', event =>
         console.log('textInput change', event),
       );
-      el.addEventListener('scaleBlur', event =>
-        console.log('textInput blur', event),
-      );
-    });
-    document.querySelectorAll('co2-input[type="checkbox"]').forEach(el => {
-      el.addEventListener('scaleChange', event => {
-        console.log('checkbox change', event.detail, el.id);
-        if (el.id === 'labelledCheckboxInput') {
-          document
-            .querySelector('#labelledTextInput')
-            .setAttribute('is-disabled', event.detail);
-        }
+    document
+      .querySelector('co2-button')
+      .addEventListener('scaleClick', event => {
+        console.log(
+          'button click',
+          document.querySelector('co2-text-area').value,
+        );
       });
-    });
+    // document.querySelectorAll('co2-input[type="checkbox"]').forEach(el => {
+    //   el.addEventListener('scaleChange', event => {
+    //     console.log('checkbox change', event.detail, el.id);
+    //     if (el.id === 'labelledCheckboxInput') {
+    //       document
+    //         .querySelector('#labelledTextInput')
+    //         .setAttribute('is-disabled', event.detail);
+    //     }
+    //   });
+    // });
   </script>
 </html>
