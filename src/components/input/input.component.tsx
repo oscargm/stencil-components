@@ -89,9 +89,6 @@ export class Input {
   watchHandler(newValue: boolean, oldValue: boolean) {
     console.log('oldValue, newValue: ', oldValue, newValue);
   }
-  componentWillLoad(){
-    console.log(this.name, 'is-checked?¿', this.isChecked);
-  }
 
   render() {
     switch (this.type) {
