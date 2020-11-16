@@ -8,6 +8,10 @@ import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 import { MinMaxValue } from "./components/input/model";
 export namespace Components {
     interface Co2Button {
+        /**
+          * HTML disabled attribute
+         */
+        "isDisabled"?: boolean;
         "text": string;
     }
     interface Co2Input {
@@ -38,6 +42,7 @@ export namespace Components {
         "value"?: string;
     }
     interface Co2TextArea {
+        "customPlaceholder": string;
         "isDisabled": boolean;
         "maxLength": number;
         "value": string;
@@ -104,6 +109,10 @@ declare global {
 declare namespace LocalJSX {
     interface Co2Button {
         /**
+          * HTML disabled attribute
+         */
+        "isDisabled"?: boolean;
+        /**
           * HTML onBlur event
          */
         "onScaleClick"?: (event: CustomEvent<any>) => void;
@@ -145,6 +154,7 @@ declare namespace LocalJSX {
         "value"?: string;
     }
     interface Co2TextArea {
+        "customPlaceholder"?: string;
         "isDisabled"?: boolean;
         "maxLength"?: number;
         /**

@@ -14,7 +14,12 @@
   cursor: pointer;
   box-shadow: 1px 1px 2px 1px rgba(0, 0, 0, 0.4);
 }
-button:hover {
+button:not(:disabled):hover {
   background: #1d7745;
   box-shadow: none;
+}
+button:disabled {
+  background: #444;
+  color: #ddd;
+  cursor: unset;
 }

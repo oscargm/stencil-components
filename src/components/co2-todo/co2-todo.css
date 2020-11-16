@@ -1,6 +1,6 @@
 :host {
   display: block;
-  --todo-id-background: darkblue;
+  --todo-id-background: #248a52;
   --todo-id-primary: #ccc;
   --default-background: #ddd;
   --default-primary: #333;

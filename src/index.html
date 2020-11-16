@@ -10,6 +10,15 @@
 
     <script type="module" src="/build/co2-web-components.esm.js"></script>
     <script nomodule src="/build/co2-web-components.js"></script>
+    <!-- <script src="../node_modules/@webcomponents/webcomponentsjs/webcomponents-loader.js"></script> -->
+    <link
+      href="https://fonts.googleapis.com/css?family=Roboto:300,400,500"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Material+Icons&display=block"
+      rel="stylesheet"
+    />
   </head>
   <style type="text/css">
     html,
@@ -20,7 +29,7 @@
       margin: 0;
       padding: 0;
       box-sizing: border-box;
-      background-color: cornflowerblue;
+      background-color: salmon;
     }
     .container {
       padding-top: 3rem;
@@ -42,41 +51,62 @@
       /* padding-top: 1.5rem; */
       text-align: right;
     }
+    .todos h2 {
+      text-align: center;
+      color: #eee;
+      border-bottom: 1px solid #eee;
+    }
   </style>
   <body>
     <section class="container">
-      <div class="todos">
-        <co2-todo index="1" task="task-1" is-done="false" />
+      <div id="todosToFinish" class="todos">
+        <h2>Todo's to finish</h2>
+        <p>Add some todo's...</p>
+      </div>
+      <div id="finishedTodos" class="todos">
+        <h2>Finished todo's</h2>
       </div>
       <div class="add-todo-form">
-        <co2-text-area value="Some important todo" value=""></co2-text-area>
-        <co2-button text="Add todo"></co2-button>
+        <co2-text-area custom-placeholder="Some important todo"></co2-text-area>
+        <co2-button text="Add todo" is-disabled="true"></co2-button>
       </div>
     </section>
   </body>
   <script>
-    document
-      .querySelector('co2-todo')
-      .addEventListener('scaleChange', event =>
-        console.log('textInput change', event),
-      );
+    const textArea = document.querySelector('co2-text-area');
+    const addTodoButton = document.querySelector('co2-button');
+    const todosToFinish = document.querySelector('#todosToFinish');
+    const finishedTodos = document.querySelector('#finishedTodos');
+    textArea.addEventListener('scaleChange', event =>
+      addTodoButton.setAttribute(
+        'is-disabled',
+        event.detail.length > 0 ? false : true,
+      ),
+    );
+    const createNewTodo = (existingTodos, task) => {
+      const newTodo = document.createElement('co2-todo');
+      newTodo.setAttribute('index', existingTodos + 1);
+      newTodo.setAttribute('task', textArea.value);
+      newTodo.setAttribute('is-done', false);
+      return newTodo;
+    };
+    console.log('queryselectButton', document.querySelector('co2-button'));
     document
       .querySelector('co2-button')
       .addEventListener('scaleClick', event => {
-        console.log(
-          'button click',
-          document.querySelector('co2-text-area').value,
-        );
+        const existingTodos = Array.from(document.querySelectorAll('co2-todo'))
+          .length;
+        const newTodo = createNewTodo(existingTodos, textArea.value);
+        todosToFinish.appendChild(newTodo);
+        textArea.value = null;
+        newTodo.addEventListener('scaleChange', event => {
+          const elementCopy = event.currentTarget;
+          const parent = elementCopy.parentElement;
+          parent.removeChild(elementCopy);
+          event.detail
+            ? todosToFinish.appendChild(elementCopy)
+            : finishedTodos.appendChild(elementCopy);
+        });
       });
-    // document.querySelectorAll('co2-input[type="checkbox"]').forEach(el => {
-    //   el.addEventListener('scaleChange', event => {
-    //     console.log('checkbox change', event.detail, el.id);
-    //     if (el.id === 'labelledCheckboxInput') {
-    //       document
-    //         .querySelector('#labelledTextInput')
-    //         .setAttribute('is-disabled', event.detail);
-    //     }
-    //   });
-    // });
   </script>
 </html>

@@ -1,0 +1,8 @@
+@use 'node_modules/@material/button/mdc-button';
+@use '@material/button';
+@import './../../../variables.scss';
+
+.co2-button {
+  @include button.container-fill-color($co2-primary);
+  @include button.ink-color($co2-alternate);
+}
