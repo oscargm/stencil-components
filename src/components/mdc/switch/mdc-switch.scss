@@ -1,0 +1,8 @@
+@use 'node_modules/@material/switch/mdc-switch';
+@use '@material/switch';
+
+@include switch.core-styles;
+
+.mdc-switch {
+  // @include mdc-rtl-reflexive-box(margin, right, 20px);
+}

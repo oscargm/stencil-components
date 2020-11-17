@@ -6,19 +6,10 @@
       name="viewport"
       content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=5.0"
     />
-    <title>Stencil Component Starter</title>
+    <title>CO2 todos with web components</title>
 
     <script type="module" src="/build/co2-web-components.esm.js"></script>
     <script nomodule src="/build/co2-web-components.js"></script>
-    <!-- <script src="../node_modules/@webcomponents/webcomponentsjs/webcomponents-loader.js"></script> -->
-    <link
-      href="https://fonts.googleapis.com/css?family=Roboto:300,400,500"
-      rel="stylesheet"
-    />
-    <link
-      href="https://fonts.googleapis.com/css?family=Material+Icons&display=block"
-      rel="stylesheet"
-    />
   </head>
   <style type="text/css">
     html,
@@ -56,24 +47,29 @@
       color: #eee;
       border-bottom: 1px solid #eee;
     }
+    .todos > co2-todo {
+      margin-bottom: 0.5rem;
+    }
   </style>
   <body>
     <section class="container">
       <div id="todosToFinish" class="todos">
-        <h2>Todo's to finish</h2>
-        <p>Add some todo's...</p>
+        <co2-typography type="headline4">Todo's to finish</co2-typography>
+        <co2-typography type="body1">Add some todo's...</co2-typography>
       </div>
       <div id="finishedTodos" class="todos">
-        <h2>Finished todo's</h2>
+        <co2-typography type="headline4">Finished todo's</co2-typography>
       </div>
       <div class="add-todo-form">
-        <co2-text-area custom-placeholder="Some important todo"></co2-text-area>
+        <co2-textarea custom-placeholder="Some important todo"></co2-textarea>
         <co2-button text="Add todo" is-disabled="true"></co2-button>
       </div>
     </section>
   </body>
-  <script>
-    const textArea = document.querySelector('co2-text-area');
+  <script type="module">
+    // const MDCSwitch = require('@material/switch');
+    // import { MDCSwitch } from './node_modules/@material/switch/index';
+    const textArea = document.querySelector('co2-textarea');
     const addTodoButton = document.querySelector('co2-button');
     const todosToFinish = document.querySelector('#todosToFinish');
     const finishedTodos = document.querySelector('#finishedTodos');
@@ -90,7 +86,7 @@
       newTodo.setAttribute('is-done', false);
       return newTodo;
     };
-    console.log('queryselectButton', document.querySelector('co2-button'));
+    // console.log('queryselectButton', document.querySelector('co2-button'));
     document
       .querySelector('co2-button')
       .addEventListener('scaleClick', event => {
@@ -100,9 +96,13 @@
         todosToFinish.appendChild(newTodo);
         textArea.value = null;
         newTodo.addEventListener('scaleChange', event => {
-          const elementCopy = event.currentTarget;
+          const elementCopy = event.target;
+          console.log('elementcopy', elementCopy);
           const parent = elementCopy.parentElement;
+          console.log('elementcopy', parent);
           parent.removeChild(elementCopy);
+          console.log('eventDetail', event.detail);
+          elementCopy.setAttribute('is-done', event.detail);
           event.detail
             ? todosToFinish.appendChild(elementCopy)
             : finishedTodos.appendChild(elementCopy);

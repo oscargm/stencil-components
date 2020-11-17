@@ -1,6 +1,6 @@
 import { Component, Event, EventEmitter, h, Prop } from '@stencil/core';
 // import { MDCButton } from '@material/button';
-import { MDCRipple } from '@material/ripple';
+// import { MDCRipple } from '@material/ripple';
 @Component({
   tag: 'co2-button',
   styleUrl: 'mdc-button.scss',
@@ -21,9 +21,7 @@ export class Co2Button {
   handleClick(event) {
     this.scaleClick?.emit(event);
   }
-  componentDidRender() {
-    new MDCRipple(document.querySelector('.mdc-button'));
-  }
+
   render() {
     return (
       <div class="mdc-touch-target-wrapper">

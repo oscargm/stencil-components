@@ -6,6 +6,7 @@
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 import { MinMaxValue } from "./components/input/model";
+import { Typography } from "./components/mdc/typography/model";
 export namespace Components {
     interface Co2Button {
         /**
@@ -41,16 +42,29 @@ export namespace Components {
          */
         "value"?: string;
     }
+    interface Co2Switch {
+        "isChecked": boolean;
+        "isDisabled": boolean;
+        "label": string;
+    }
     interface Co2TextArea {
         "customPlaceholder": string;
         "isDisabled": boolean;
         "maxLength": number;
         "value": string;
     }
+    interface Co2Textarea {
+        "customPlaceholder": string;
+        "isDisabled": boolean;
+        "value": string;
+    }
     interface Co2Todo {
         "index"?: number;
         "isDone"?: boolean;
         "task": string;
+    }
+    interface Co2Typography {
+        "type": Typography;
     }
     interface MyComponent {
         /**
@@ -80,17 +94,35 @@ declare global {
         prototype: HTMLCo2InputElement;
         new (): HTMLCo2InputElement;
     };
+    interface HTMLCo2SwitchElement extends Components.Co2Switch, HTMLStencilElement {
+    }
+    var HTMLCo2SwitchElement: {
+        prototype: HTMLCo2SwitchElement;
+        new (): HTMLCo2SwitchElement;
+    };
     interface HTMLCo2TextAreaElement extends Components.Co2TextArea, HTMLStencilElement {
     }
     var HTMLCo2TextAreaElement: {
         prototype: HTMLCo2TextAreaElement;
         new (): HTMLCo2TextAreaElement;
     };
+    interface HTMLCo2TextareaElement extends Components.Co2Textarea, HTMLStencilElement {
+    }
+    var HTMLCo2TextareaElement: {
+        prototype: HTMLCo2TextareaElement;
+        new (): HTMLCo2TextareaElement;
+    };
     interface HTMLCo2TodoElement extends Components.Co2Todo, HTMLStencilElement {
     }
     var HTMLCo2TodoElement: {
         prototype: HTMLCo2TodoElement;
         new (): HTMLCo2TodoElement;
+    };
+    interface HTMLCo2TypographyElement extends Components.Co2Typography, HTMLStencilElement {
+    }
+    var HTMLCo2TypographyElement: {
+        prototype: HTMLCo2TypographyElement;
+        new (): HTMLCo2TypographyElement;
     };
     interface HTMLMyComponentElement extends Components.MyComponent, HTMLStencilElement {
     }
@@ -101,8 +133,11 @@ declare global {
     interface HTMLElementTagNameMap {
         "co2-button": HTMLCo2ButtonElement;
         "co2-input": HTMLCo2InputElement;
+        "co2-switch": HTMLCo2SwitchElement;
         "co2-text-area": HTMLCo2TextAreaElement;
+        "co2-textarea": HTMLCo2TextareaElement;
         "co2-todo": HTMLCo2TodoElement;
+        "co2-typography": HTMLCo2TypographyElement;
         "my-component": HTMLMyComponentElement;
     }
 }
@@ -153,6 +188,15 @@ declare namespace LocalJSX {
          */
         "value"?: string;
     }
+    interface Co2Switch {
+        "isChecked"?: boolean;
+        "isDisabled"?: boolean;
+        "label"?: string;
+        /**
+          * HTML onChange|onInput events (depending on type)
+         */
+        "onScaleChange"?: (event: CustomEvent<any>) => void;
+    }
     interface Co2TextArea {
         "customPlaceholder"?: string;
         "isDisabled"?: boolean;
@@ -167,10 +211,26 @@ declare namespace LocalJSX {
         "onScaleChange"?: (event: CustomEvent<any>) => void;
         "value"?: string;
     }
+    interface Co2Textarea {
+        "customPlaceholder"?: string;
+        "isDisabled"?: boolean;
+        /**
+          * HTML onBlur event
+         */
+        "onScaleBlur"?: (event: CustomEvent<any>) => void;
+        /**
+          * HTML onChange|onInput events (depending on type)
+         */
+        "onScaleChange"?: (event: CustomEvent<any>) => void;
+        "value"?: string;
+    }
     interface Co2Todo {
         "index"?: number;
         "isDone"?: boolean;
         "task"?: string;
+    }
+    interface Co2Typography {
+        "type"?: Typography;
     }
     interface MyComponent {
         /**
@@ -189,8 +249,11 @@ declare namespace LocalJSX {
     interface IntrinsicElements {
         "co2-button": Co2Button;
         "co2-input": Co2Input;
+        "co2-switch": Co2Switch;
         "co2-text-area": Co2TextArea;
+        "co2-textarea": Co2Textarea;
         "co2-todo": Co2Todo;
+        "co2-typography": Co2Typography;
         "my-component": MyComponent;
     }
 }
@@ -200,8 +263,11 @@ declare module "@stencil/core" {
         interface IntrinsicElements {
             "co2-button": LocalJSX.Co2Button & JSXBase.HTMLAttributes<HTMLCo2ButtonElement>;
             "co2-input": LocalJSX.Co2Input & JSXBase.HTMLAttributes<HTMLCo2InputElement>;
+            "co2-switch": LocalJSX.Co2Switch & JSXBase.HTMLAttributes<HTMLCo2SwitchElement>;
             "co2-text-area": LocalJSX.Co2TextArea & JSXBase.HTMLAttributes<HTMLCo2TextAreaElement>;
+            "co2-textarea": LocalJSX.Co2Textarea & JSXBase.HTMLAttributes<HTMLCo2TextareaElement>;
             "co2-todo": LocalJSX.Co2Todo & JSXBase.HTMLAttributes<HTMLCo2TodoElement>;
+            "co2-typography": LocalJSX.Co2Typography & JSXBase.HTMLAttributes<HTMLCo2TypographyElement>;
             "my-component": LocalJSX.MyComponent & JSXBase.HTMLAttributes<HTMLMyComponentElement>;
         }
     }
