@@ -13,7 +13,6 @@ export namespace Components {
           * HTML disabled attribute
          */
         "isDisabled"?: boolean;
-        "text": string;
     }
     interface Co2Input {
         /**
@@ -176,7 +175,6 @@ declare namespace LocalJSX {
           * HTML onBlur event
          */
         "onScaleClick"?: (event: CustomEvent<any>) => void;
-        "text"?: string;
     }
     interface Co2Input {
         /**

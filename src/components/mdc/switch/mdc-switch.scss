@@ -1,8 +1,11 @@
 @use 'node_modules/@material/switch/mdc-switch';
 @use '@material/switch';
+@import '../../../variables.scss';
+// @include switch.core-styles;
 
-@include switch.core-styles;
-
+:host {
+}
 .mdc-switch {
-  // @include mdc-rtl-reflexive-box(margin, right, 20px);
+  @include switch.toggled-on-color($co2-theme-primary);
+  @include switch.ripple-size(30px);
 }

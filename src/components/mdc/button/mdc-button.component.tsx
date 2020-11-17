@@ -7,7 +7,6 @@ import { Component, Event, EventEmitter, h, Prop } from '@stencil/core';
   shadow: true,
 })
 export class Co2Button {
-  @Prop() text: string = 'button';
   /**
    * HTML onBlur event
    */
@@ -31,7 +30,9 @@ export class Co2Button {
           disabled={this.isDisabled}
         >
           <div class="mdc-button__ripple"></div>
-          <span class="mdc-button__label">{this.text}</span>
+          <span class="mdc-button__label">
+            <slot />
+          </span>
           <div class="mdc-button__touch"></div>
           <co2-ripple-effect />
         </button>

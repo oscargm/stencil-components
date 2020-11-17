@@ -6,9 +6,23 @@
 @import url('https://fonts.googleapis.com/css?family=Roboto:300,400,500');
 $mdc-typography-font-family: unquote('Roboto, sans-serif');
 
-$mdc-theme-primary: #072ac8;
-$mdc-theme-secondary: #1e96fc;
+$co2-theme-font-family: unquote('Roboto, sans-serif');
+$co2-theme-primary: #072ac8;
+$co2-theme-secondary: #1e96fc;
 
-$mdc-shape-small-component-radius: 4px;
-$mdc-shape-medium-component-radius: 4px;
-$mdc-shape-large-component-radius: 0px;
+$co2-theme-default-background: #fff;
+$co2-theme-default-surface-background: #eee;
+$co2-theme-default-typography-color: #222;
+
+$co2-theme-padding-0: 0px;
+$co2-theme-padding-1: 4px;
+$co2-theme-padding-2: 8px;
+$co2-theme-padding-3: 12px;
+$co2-theme-padding-4: 16px;
+$co2-theme-padding-5: 20px;
+$co2-theme-padding-6: 24px;
+
+$co2-theme-radius-0: 0px;
+$co2-theme-radius-1: 4px;
+$co2-theme-radius-2: 8px;
+$co2-theme-radius-3: 12px;

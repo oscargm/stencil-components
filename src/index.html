@@ -62,13 +62,11 @@
       </div>
       <div class="add-todo-form">
         <co2-textarea custom-placeholder="Some important todo"></co2-textarea>
-        <co2-button text="Add todo" is-disabled="true"></co2-button>
+        <co2-button is-disabled="true">Add todo</co2-button>
       </div>
     </section>
   </body>
-  <script type="module">
-    // const MDCSwitch = require('@material/switch');
-    // import { MDCSwitch } from './node_modules/@material/switch/index';
+  <script>
     const textArea = document.querySelector('co2-textarea');
     const addTodoButton = document.querySelector('co2-button');
     const todosToFinish = document.querySelector('#todosToFinish');

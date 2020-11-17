@@ -1,2 +1,10 @@
 @use 'node_modules/@material/button/mdc-button';
 @use '@material/button';
+@import '../../../variables.scss';
+
+.mdc-button {
+  @include button.container-fill-color($co2-theme-primary);
+  &:hover {
+    @include button.container-fill-color($co2-theme-secondary);
+  }
+}
