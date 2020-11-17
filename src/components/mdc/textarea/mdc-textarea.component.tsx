@@ -6,14 +6,23 @@ import { Component, Event, EventEmitter, h, Prop } from '@stencil/core';
   shadow: true,
 })
 export class Co2TextArea {
+  /**
+   * HTML customPlaceholder prop
+   */
   @Prop() customPlaceholder: string = 'Write some text...';
 
+  /**
+   * HTML is-disabled prop
+   */
   @Prop({ reflect: true }) isDisabled: boolean = false;
 
+  /**
+   * HTML value prop
+   */
   @Prop({ mutable: true }) value: string = '';
 
   /**
-   * HTML onChange|onInput events (depending on type)
+   * HTML onChange event
    */
   @Event() scaleChange?: EventEmitter<any>;
 

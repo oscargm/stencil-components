@@ -8,26 +8,30 @@ import { Component, ComponentInterface, Prop, h, Element } from '@stencil/core';
 })
 export class Co2RippleEffect implements ComponentInterface {
   @Element() private element: HTMLElement;
+
   /**
    * 	Whether or not the surface the ripple is acting upon is active
    */
   @Prop() active: boolean | undefined;
+
   /**
    * Whether or not the ripple is unbounded
    */
   @Prop() unbounded: boolean = false;
+
   /**
    * Disables the ripple effect
    */
   @Prop() disabled: boolean = false;
 
-  // Since we are wrapping the ripple component, we need to use the
-  // parent element as default
   /**
    * The node which should trigger the Ripple Effect
    */
   @Prop() interactionNode: HTMLElement;
 
+  /**
+   * componentWillLoad sets parentElement to interactionNode
+   */
   componentWillLoad() {
     this.interactionNode = this.element.parentElement;
   }

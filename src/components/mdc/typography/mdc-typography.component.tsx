@@ -8,6 +8,9 @@ import { TypographyRenderer } from './renderer';
   shadow: true,
 })
 export class Co2Typography {
+  /**
+   * HTML type prop
+   */
   @Prop() type: Typography = TypographyTypes.BODY_1;
 
   render() {

@@ -60,8 +60,17 @@ export namespace Components {
         "unbounded": boolean;
     }
     interface Co2Switch {
+        /**
+          * HTML is-checked prop
+         */
         "isChecked": boolean;
+        /**
+          * HTML is-disabled prop
+         */
         "isDisabled": boolean;
+        /**
+          * HTML label prop
+         */
         "label": string;
     }
     interface Co2TextArea {
@@ -71,8 +80,17 @@ export namespace Components {
         "value": string;
     }
     interface Co2Textarea {
+        /**
+          * HTML customPlaceholder prop
+         */
         "customPlaceholder": string;
+        /**
+          * HTML is-disabled prop
+         */
         "isDisabled": boolean;
+        /**
+          * HTML value prop
+         */
         "value": string;
     }
     interface Co2Todo {
@@ -81,6 +99,9 @@ export namespace Components {
         "task": string;
     }
     interface Co2Typography {
+        /**
+          * HTML type prop
+         */
         "type": Typography;
     }
     interface MyComponent {
@@ -172,7 +193,7 @@ declare namespace LocalJSX {
          */
         "isDisabled"?: boolean;
         /**
-          * HTML onBlur event
+          * HTML click event
          */
         "onScaleClick"?: (event: CustomEvent<any>) => void;
     }
@@ -230,11 +251,20 @@ declare namespace LocalJSX {
         "unbounded"?: boolean;
     }
     interface Co2Switch {
+        /**
+          * HTML is-checked prop
+         */
         "isChecked"?: boolean;
+        /**
+          * HTML is-disabled prop
+         */
         "isDisabled"?: boolean;
+        /**
+          * HTML label prop
+         */
         "label"?: string;
         /**
-          * HTML onChange|onInput events (depending on type)
+          * HTML onChange event
          */
         "onScaleChange"?: (event: CustomEvent<any>) => void;
     }
@@ -253,16 +283,25 @@ declare namespace LocalJSX {
         "value"?: string;
     }
     interface Co2Textarea {
+        /**
+          * HTML customPlaceholder prop
+         */
         "customPlaceholder"?: string;
+        /**
+          * HTML is-disabled prop
+         */
         "isDisabled"?: boolean;
         /**
           * HTML onBlur event
          */
         "onScaleBlur"?: (event: CustomEvent<any>) => void;
         /**
-          * HTML onChange|onInput events (depending on type)
+          * HTML onChange event
          */
         "onScaleChange"?: (event: CustomEvent<any>) => void;
+        /**
+          * HTML value prop
+         */
         "value"?: string;
     }
     interface Co2Todo {
@@ -271,6 +310,9 @@ declare namespace LocalJSX {
         "task"?: string;
     }
     interface Co2Typography {
+        /**
+          * HTML type prop
+         */
         "type"?: Typography;
     }
     interface MyComponent {

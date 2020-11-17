@@ -17,14 +17,23 @@ import { MDCSwitch } from '@material/switch';
 export class Co2Switch {
   @Element() private element: HTMLElement;
 
+  /**
+   * HTML label prop
+   */
   @Prop() label: string = 'off/on';
 
+  /**
+   * HTML is-disabled prop
+   */
   @Prop({ reflect: true }) isDisabled: boolean = false;
 
+  /**
+   * HTML is-checked prop
+   */
   @Prop({ reflect: true }) isChecked: boolean = false;
 
   /**
-   * HTML onChange|onInput events (depending on type)
+   * HTML onChange event
    */
   @Event() scaleChange?: EventEmitter<any>;
 
@@ -32,6 +41,10 @@ export class Co2Switch {
     this.isChecked = !this.isChecked;
     this.scaleChange?.emit(this.isChecked);
   }
+
+  /**
+   * componentDidRender instantiates MDCSwitch from materialUI
+   */
   componentDidRender() {
     new MDCSwitch(this.element.shadowRoot.querySelector('.mdc-switch'));
   }

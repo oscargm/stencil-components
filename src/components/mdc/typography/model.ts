@@ -29,4 +29,20 @@ export const enum TypographyTypes {
   OVERLINE = 'overline',
 }
 
+export const typographyTags = new Map([
+  [TypographyTypes.HEADLINE_1, 'h1'],
+  [TypographyTypes.HEADLINE_2, 'h2'],
+  [TypographyTypes.HEADLINE_3, 'h3'],
+  [TypographyTypes.HEADLINE_4, 'h4'],
+  [TypographyTypes.HEADLINE_5, 'h5'],
+  [TypographyTypes.HEADLINE_6, 'h6'],
+  [TypographyTypes.SUBTITLE_1, 'span'],
+  [TypographyTypes.SUBTITLE_2, 'span'],
+  [TypographyTypes.BODY_1, 'p'],
+  [TypographyTypes.BODY_2, 'p'],
+  [TypographyTypes.CAPTION, 'span'],
+  [TypographyTypes.BUTTON, 'span'],
+  [TypographyTypes.OVERLINE, 'span'],
+]);
+
 export type Typography = TypographyTypes;

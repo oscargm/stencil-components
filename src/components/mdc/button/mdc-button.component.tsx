@@ -1,6 +1,5 @@
 import { Component, Event, EventEmitter, h, Prop } from '@stencil/core';
-// import { MDCButton } from '@material/button';
-// import { MDCRipple } from '@material/ripple';
+
 @Component({
   tag: 'co2-button',
   styleUrl: 'mdc-button.scss',
@@ -8,7 +7,7 @@ import { Component, Event, EventEmitter, h, Prop } from '@stencil/core';
 })
 export class Co2Button {
   /**
-   * HTML onBlur event
+   * HTML click event
    */
   @Event() scaleClick?: EventEmitter<any>;
 
