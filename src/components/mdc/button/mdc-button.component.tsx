@@ -33,6 +33,7 @@ export class Co2Button {
           <div class="mdc-button__ripple"></div>
           <span class="mdc-button__label">{this.text}</span>
           <div class="mdc-button__touch"></div>
+          <co2-ripple-effect />
         </button>
       </div>
     );

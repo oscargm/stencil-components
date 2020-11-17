@@ -17,17 +17,17 @@ export class Co2Todo {
       <div class="todo">
         {!!this.index && <span class="todo-section todo-id">{this.index}</span>}
         <span class="todo-section todo-task">{this.task}</span>
-        {/* <co2-switch
+        <co2-switch
           label="is done?"
           is-checked={this.isDone}
           is-disabled={false}
           // class="todo-section todo-action"
-        ></co2-switch> */}
-        <co2-input
+        ></co2-switch>
+        {/* <co2-input
           type="checkbox"
           label="is done?"
           class="todo-section todo-action"
-        ></co2-input>
+        ></co2-input> */}
       </div>
       // <Host>
       //   <slot></slot>

@@ -26,6 +26,7 @@
   "dependencies": {
     "@material/button": "^8.0.0",
     "@material/checkbox": "^8.0.0",
+    "@material/mwc-ripple": "^0.19.1",
     "@material/switch": "^8.0.0",
     "@material/textfield": "^8.0.0",
     "@material/theme": "^8.0.0",

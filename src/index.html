@@ -104,8 +104,8 @@
           console.log('eventDetail', event.detail);
           elementCopy.setAttribute('is-done', event.detail);
           event.detail
-            ? todosToFinish.appendChild(elementCopy)
-            : finishedTodos.appendChild(elementCopy);
+            ? finishedTodos.appendChild(elementCopy)
+            : todosToFinish.appendChild(elementCopy);
         });
       });
   </script>

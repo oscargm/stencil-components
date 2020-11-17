@@ -1,0 +1,6 @@
+@import '../../../variables.scss';
+:host {
+  --mdc-theme-primary: $mdc-theme-secondary;
+  // TODO: Ripple opacity does not get taken into account atm.
+  // --mdc-ripple-fg-opacity: 0.35;
+}

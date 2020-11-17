@@ -42,6 +42,24 @@ export namespace Components {
          */
         "value"?: string;
     }
+    interface Co2RippleEffect {
+        /**
+          * Whether or not the surface the ripple is acting upon is active
+         */
+        "active": boolean | undefined;
+        /**
+          * Disables the ripple effect
+         */
+        "disabled": boolean;
+        /**
+          * The node which should trigger the Ripple Effect
+         */
+        "interactionNode": HTMLElement;
+        /**
+          * Whether or not the ripple is unbounded
+         */
+        "unbounded": boolean;
+    }
     interface Co2Switch {
         "isChecked": boolean;
         "isDisabled": boolean;
@@ -94,6 +112,12 @@ declare global {
         prototype: HTMLCo2InputElement;
         new (): HTMLCo2InputElement;
     };
+    interface HTMLCo2RippleEffectElement extends Components.Co2RippleEffect, HTMLStencilElement {
+    }
+    var HTMLCo2RippleEffectElement: {
+        prototype: HTMLCo2RippleEffectElement;
+        new (): HTMLCo2RippleEffectElement;
+    };
     interface HTMLCo2SwitchElement extends Components.Co2Switch, HTMLStencilElement {
     }
     var HTMLCo2SwitchElement: {
@@ -133,6 +157,7 @@ declare global {
     interface HTMLElementTagNameMap {
         "co2-button": HTMLCo2ButtonElement;
         "co2-input": HTMLCo2InputElement;
+        "co2-ripple-effect": HTMLCo2RippleEffectElement;
         "co2-switch": HTMLCo2SwitchElement;
         "co2-text-area": HTMLCo2TextAreaElement;
         "co2-textarea": HTMLCo2TextareaElement;
@@ -187,6 +212,24 @@ declare namespace LocalJSX {
           * HTML value attribute
          */
         "value"?: string;
+    }
+    interface Co2RippleEffect {
+        /**
+          * Whether or not the surface the ripple is acting upon is active
+         */
+        "active"?: boolean | undefined;
+        /**
+          * Disables the ripple effect
+         */
+        "disabled"?: boolean;
+        /**
+          * The node which should trigger the Ripple Effect
+         */
+        "interactionNode"?: HTMLElement;
+        /**
+          * Whether or not the ripple is unbounded
+         */
+        "unbounded"?: boolean;
     }
     interface Co2Switch {
         "isChecked"?: boolean;
@@ -249,6 +292,7 @@ declare namespace LocalJSX {
     interface IntrinsicElements {
         "co2-button": Co2Button;
         "co2-input": Co2Input;
+        "co2-ripple-effect": Co2RippleEffect;
         "co2-switch": Co2Switch;
         "co2-text-area": Co2TextArea;
         "co2-textarea": Co2Textarea;
@@ -263,6 +307,7 @@ declare module "@stencil/core" {
         interface IntrinsicElements {
             "co2-button": LocalJSX.Co2Button & JSXBase.HTMLAttributes<HTMLCo2ButtonElement>;
             "co2-input": LocalJSX.Co2Input & JSXBase.HTMLAttributes<HTMLCo2InputElement>;
+            "co2-ripple-effect": LocalJSX.Co2RippleEffect & JSXBase.HTMLAttributes<HTMLCo2RippleEffectElement>;
             "co2-switch": LocalJSX.Co2Switch & JSXBase.HTMLAttributes<HTMLCo2SwitchElement>;
             "co2-text-area": LocalJSX.Co2TextArea & JSXBase.HTMLAttributes<HTMLCo2TextAreaElement>;
             "co2-textarea": LocalJSX.Co2Textarea & JSXBase.HTMLAttributes<HTMLCo2TextareaElement>;
