@@ -25,14 +25,14 @@ export class Co2Todo implements ComponentInterface {
   render() {
     return (
       <div class="todo">
-        {!!this.index && (
+        {!!this.index ? (
           <co2-typography
             type={TypographyTypes.CAPTION}
             class="todo-section todo-id"
           >
             {this.index}
           </co2-typography>
-        )}
+        ) : null}
         <co2-typography
           type={TypographyTypes.CAPTION}
           class="todo-section todo-task"
