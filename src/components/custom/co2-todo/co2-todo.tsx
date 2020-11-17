@@ -15,12 +15,12 @@ export class Co2Todo implements ComponentInterface {
   /**
    * Todo task text prop
    */
-  @Prop({ mutable: true }) task: string = '';
+  @Prop() task: string = '';
 
   /**
    *  isDone prop (checks or unchecks switch)
    */
-  @Prop({ reflect: true }) isDone?: boolean = false;
+  @Prop({ reflect: true }) isDone?: boolean;
 
   render() {
     return (
@@ -41,8 +41,7 @@ export class Co2Todo implements ComponentInterface {
         </co2-typography>
         <co2-switch
           label="is done?"
-          is-checked={this.isDone}
-          is-disabled={false}
+          is-checked={this.isDone ? 'true' : 'false'}
           class="todo-section todo-action"
         ></co2-switch>
       </div>
