@@ -1,5 +1,5 @@
 import { h } from '@stencil/core';
-import { Typography, typographyTags, TypographyTypes } from './model';
+import { Typography, typographyTags } from './model';
 
 const getHtml = (type: Typography) => {
   const Tag = typographyTags.get(type);

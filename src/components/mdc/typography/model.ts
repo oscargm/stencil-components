@@ -1,18 +1,3 @@
-// export type Typography =
-//   | 'headline1'
-//   | 'headline2'
-//   | 'headline3'
-//   | 'headline4'
-//   | 'headline5'
-//   | 'headline6'
-//   | 'subtitle1'
-//   | 'subtitle2'
-//   | 'body1'
-//   | 'body2'
-//   | 'caption'
-//   | 'button'
-//   | 'overline';
-
 export const enum TypographyTypes {
   HEADLINE_1 = 'headline1',
   HEADLINE_2 = 'headline2',

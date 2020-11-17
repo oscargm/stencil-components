@@ -1,11 +1,18 @@
-import { Component, Event, EventEmitter, h, Prop } from '@stencil/core';
+import {
+  Component,
+  ComponentInterface,
+  Event,
+  EventEmitter,
+  h,
+  Prop,
+} from '@stencil/core';
 
 @Component({
   tag: 'co2-textarea',
   styleUrl: 'mdc-textarea.scss',
   shadow: true,
 })
-export class Co2TextArea {
+export class Co2TextArea implements ComponentInterface {
   /**
    * HTML customPlaceholder prop
    */

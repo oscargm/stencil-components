@@ -1,4 +1,4 @@
-import { Component, h, Prop } from '@stencil/core';
+import { Component, ComponentInterface, h, Prop } from '@stencil/core';
 import { Typography, TypographyTypes } from './model';
 import { TypographyRenderer } from './renderer';
 
@@ -7,7 +7,7 @@ import { TypographyRenderer } from './renderer';
   styleUrl: 'mdc-typography.scss',
   shadow: true,
 })
-export class Co2Typography {
+export class Co2Typography implements ComponentInterface {
   /**
    * HTML type prop
    */

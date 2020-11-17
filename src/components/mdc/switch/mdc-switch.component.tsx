@@ -6,6 +6,7 @@ import {
   h,
   Host,
   Prop,
+  ComponentInterface,
 } from '@stencil/core';
 import { MDCSwitch } from '@material/switch';
 
@@ -14,7 +15,7 @@ import { MDCSwitch } from '@material/switch';
   styleUrl: 'mdc-switch.scss',
   shadow: true,
 })
-export class Co2Switch {
+export class Co2Switch implements ComponentInterface {
   @Element() private element: HTMLElement;
 
   /**
