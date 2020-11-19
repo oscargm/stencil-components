@@ -1,0 +1,39 @@
+@import '../../../variables.scss';
+
+:host {
+  display: block;
+  box-sizing: border-box;
+}
+
+.todo {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  padding: $co2-theme-padding-2;
+  vertical-align: middle;
+  background-color: $co2-theme-default-surface-background;
+  color: $co2-theme-default-typography-color;
+  border-radius: $co2-theme-radius-3;
+  box-sizing: border-box;
+}
+.todo-section {
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  display: flex;
+  vertical-align: middle;
+}
+.todo-id {
+  background-color: $co2-theme-primary;
+  color: $co2-theme-default-typography-upon-primary;
+  padding: $co2-theme-padding-1 $co2-theme-padding-6;
+  border-radius: $co2-theme-radius-3;
+}
+.todo-task {
+  min-width: 300px;
+  text-align: justify;
+  padding: $co2-theme-padding-1 $co2-theme-padding-4;
+}
+.todo-action {
+  padding: $co2-theme-padding-1 $co2-theme-padding-4;
+}

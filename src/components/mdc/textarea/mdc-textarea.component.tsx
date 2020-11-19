@@ -1,19 +1,35 @@
-import { Component, Event, EventEmitter, h, Prop } from '@stencil/core';
+import {
+  Component,
+  ComponentInterface,
+  Event,
+  EventEmitter,
+  h,
+  Prop,
+} from '@stencil/core';
 
 @Component({
   tag: 'co2-textarea',
   styleUrl: 'mdc-textarea.scss',
   shadow: true,
 })
-export class Co2TextArea {
+export class Co2TextArea implements ComponentInterface {
+  /**
+   * HTML customPlaceholder prop
+   */
   @Prop() customPlaceholder: string = 'Write some text...';
 
+  /**
+   * HTML is-disabled prop
+   */
   @Prop({ reflect: true }) isDisabled: boolean = false;
 
+  /**
+   * HTML value prop
+   */
   @Prop({ mutable: true }) value: string = '';
 
   /**
-   * HTML onChange|onInput events (depending on type)
+   * HTML onChange event
    */
   @Event() scaleChange?: EventEmitter<any>;
 

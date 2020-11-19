@@ -5,7 +5,6 @@
  * It contains typing information for all components that exist in this project.
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
-import { MinMaxValue } from "./components/input/model";
 import { Typography } from "./components/mdc/typography/model";
 export namespace Components {
     interface Co2Button {
@@ -13,33 +12,6 @@ export namespace Components {
           * HTML disabled attribute
          */
         "isDisabled"?: boolean;
-    }
-    interface Co2Input {
-        /**
-          * HTML checked attribute
-         */
-        "isChecked"?: boolean;
-        /**
-          * HTML disabled attribute
-         */
-        "isDisabled"?: boolean;
-        /**
-          * Label text
-         */
-        "label"?: string;
-        "maxLength"?: number;
-        "maxValue"?: MinMaxValue;
-        "minLength"?: number;
-        "minValue"?: MinMaxValue;
-        /**
-          * HTML name attribute
-         */
-        "name"?: string;
-        "type"?: string;
-        /**
-          * HTML value attribute
-         */
-        "value"?: string;
     }
     interface Co2RippleEffect {
         /**
@@ -60,42 +32,52 @@ export namespace Components {
         "unbounded": boolean;
     }
     interface Co2Switch {
+        /**
+          * HTML is-checked prop
+         */
         "isChecked": boolean;
+        /**
+          * HTML is-disabled prop
+         */
         "isDisabled": boolean;
+        /**
+          * HTML label prop
+         */
         "label": string;
     }
-    interface Co2TextArea {
-        "customPlaceholder": string;
-        "isDisabled": boolean;
-        "maxLength": number;
-        "value": string;
-    }
     interface Co2Textarea {
+        /**
+          * HTML customPlaceholder prop
+         */
         "customPlaceholder": string;
+        /**
+          * HTML is-disabled prop
+         */
         "isDisabled": boolean;
+        /**
+          * HTML value prop
+         */
         "value": string;
     }
     interface Co2Todo {
+        /**
+          * Index prop
+         */
         "index"?: number;
+        /**
+          * isDone prop (checks or unchecks switch)
+         */
         "isDone"?: boolean;
+        /**
+          * Todo task text prop
+         */
         "task": string;
     }
     interface Co2Typography {
+        /**
+          * HTML type prop
+         */
         "type": Typography;
-    }
-    interface MyComponent {
-        /**
-          * The first name
-         */
-        "first": string;
-        /**
-          * The last name
-         */
-        "last": string;
-        /**
-          * The middle name
-         */
-        "middle": string;
     }
 }
 declare global {
@@ -104,12 +86,6 @@ declare global {
     var HTMLCo2ButtonElement: {
         prototype: HTMLCo2ButtonElement;
         new (): HTMLCo2ButtonElement;
-    };
-    interface HTMLCo2InputElement extends Components.Co2Input, HTMLStencilElement {
-    }
-    var HTMLCo2InputElement: {
-        prototype: HTMLCo2InputElement;
-        new (): HTMLCo2InputElement;
     };
     interface HTMLCo2RippleEffectElement extends Components.Co2RippleEffect, HTMLStencilElement {
     }
@@ -122,12 +98,6 @@ declare global {
     var HTMLCo2SwitchElement: {
         prototype: HTMLCo2SwitchElement;
         new (): HTMLCo2SwitchElement;
-    };
-    interface HTMLCo2TextAreaElement extends Components.Co2TextArea, HTMLStencilElement {
-    }
-    var HTMLCo2TextAreaElement: {
-        prototype: HTMLCo2TextAreaElement;
-        new (): HTMLCo2TextAreaElement;
     };
     interface HTMLCo2TextareaElement extends Components.Co2Textarea, HTMLStencilElement {
     }
@@ -147,22 +117,13 @@ declare global {
         prototype: HTMLCo2TypographyElement;
         new (): HTMLCo2TypographyElement;
     };
-    interface HTMLMyComponentElement extends Components.MyComponent, HTMLStencilElement {
-    }
-    var HTMLMyComponentElement: {
-        prototype: HTMLMyComponentElement;
-        new (): HTMLMyComponentElement;
-    };
     interface HTMLElementTagNameMap {
         "co2-button": HTMLCo2ButtonElement;
-        "co2-input": HTMLCo2InputElement;
         "co2-ripple-effect": HTMLCo2RippleEffectElement;
         "co2-switch": HTMLCo2SwitchElement;
-        "co2-text-area": HTMLCo2TextAreaElement;
         "co2-textarea": HTMLCo2TextareaElement;
         "co2-todo": HTMLCo2TodoElement;
         "co2-typography": HTMLCo2TypographyElement;
-        "my-component": HTMLMyComponentElement;
     }
 }
 declare namespace LocalJSX {
@@ -172,44 +133,9 @@ declare namespace LocalJSX {
          */
         "isDisabled"?: boolean;
         /**
-          * HTML onBlur event
+          * HTML click event
          */
         "onScaleClick"?: (event: CustomEvent<any>) => void;
-    }
-    interface Co2Input {
-        /**
-          * HTML checked attribute
-         */
-        "isChecked"?: boolean;
-        /**
-          * HTML disabled attribute
-         */
-        "isDisabled"?: boolean;
-        /**
-          * Label text
-         */
-        "label"?: string;
-        "maxLength"?: number;
-        "maxValue"?: MinMaxValue;
-        "minLength"?: number;
-        "minValue"?: MinMaxValue;
-        /**
-          * HTML name attribute
-         */
-        "name"?: string;
-        /**
-          * HTML onBlur event
-         */
-        "onScaleBlur"?: (event: CustomEvent<any>) => void;
-        /**
-          * HTML onChange|onInput events (depending on type)
-         */
-        "onScaleChange"?: (event: CustomEvent<any>) => void;
-        "type"?: string;
-        /**
-          * HTML value attribute
-         */
-        "value"?: string;
     }
     interface Co2RippleEffect {
         /**
@@ -230,73 +156,72 @@ declare namespace LocalJSX {
         "unbounded"?: boolean;
     }
     interface Co2Switch {
+        /**
+          * HTML is-checked prop
+         */
         "isChecked"?: boolean;
+        /**
+          * HTML is-disabled prop
+         */
         "isDisabled"?: boolean;
+        /**
+          * HTML label prop
+         */
         "label"?: string;
         /**
-          * HTML onChange|onInput events (depending on type)
+          * HTML onChange event
          */
         "onScaleChange"?: (event: CustomEvent<any>) => void;
-    }
-    interface Co2TextArea {
-        "customPlaceholder"?: string;
-        "isDisabled"?: boolean;
-        "maxLength"?: number;
-        /**
-          * HTML onBlur event
-         */
-        "onScaleBlur"?: (event: CustomEvent<any>) => void;
-        /**
-          * HTML onChange|onInput events (depending on type)
-         */
-        "onScaleChange"?: (event: CustomEvent<any>) => void;
-        "value"?: string;
     }
     interface Co2Textarea {
+        /**
+          * HTML customPlaceholder prop
+         */
         "customPlaceholder"?: string;
+        /**
+          * HTML is-disabled prop
+         */
         "isDisabled"?: boolean;
         /**
           * HTML onBlur event
          */
         "onScaleBlur"?: (event: CustomEvent<any>) => void;
         /**
-          * HTML onChange|onInput events (depending on type)
+          * HTML onChange event
          */
         "onScaleChange"?: (event: CustomEvent<any>) => void;
+        /**
+          * HTML value prop
+         */
         "value"?: string;
     }
     interface Co2Todo {
+        /**
+          * Index prop
+         */
         "index"?: number;
+        /**
+          * isDone prop (checks or unchecks switch)
+         */
         "isDone"?: boolean;
+        /**
+          * Todo task text prop
+         */
         "task"?: string;
     }
     interface Co2Typography {
+        /**
+          * HTML type prop
+         */
         "type"?: Typography;
-    }
-    interface MyComponent {
-        /**
-          * The first name
-         */
-        "first"?: string;
-        /**
-          * The last name
-         */
-        "last"?: string;
-        /**
-          * The middle name
-         */
-        "middle"?: string;
     }
     interface IntrinsicElements {
         "co2-button": Co2Button;
-        "co2-input": Co2Input;
         "co2-ripple-effect": Co2RippleEffect;
         "co2-switch": Co2Switch;
-        "co2-text-area": Co2TextArea;
         "co2-textarea": Co2Textarea;
         "co2-todo": Co2Todo;
         "co2-typography": Co2Typography;
-        "my-component": MyComponent;
     }
 }
 export { LocalJSX as JSX };
@@ -304,14 +229,11 @@ declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
             "co2-button": LocalJSX.Co2Button & JSXBase.HTMLAttributes<HTMLCo2ButtonElement>;
-            "co2-input": LocalJSX.Co2Input & JSXBase.HTMLAttributes<HTMLCo2InputElement>;
             "co2-ripple-effect": LocalJSX.Co2RippleEffect & JSXBase.HTMLAttributes<HTMLCo2RippleEffectElement>;
             "co2-switch": LocalJSX.Co2Switch & JSXBase.HTMLAttributes<HTMLCo2SwitchElement>;
-            "co2-text-area": LocalJSX.Co2TextArea & JSXBase.HTMLAttributes<HTMLCo2TextAreaElement>;
             "co2-textarea": LocalJSX.Co2Textarea & JSXBase.HTMLAttributes<HTMLCo2TextareaElement>;
             "co2-todo": LocalJSX.Co2Todo & JSXBase.HTMLAttributes<HTMLCo2TodoElement>;
             "co2-typography": LocalJSX.Co2Typography & JSXBase.HTMLAttributes<HTMLCo2TypographyElement>;
-            "my-component": LocalJSX.MyComponent & JSXBase.HTMLAttributes<HTMLMyComponentElement>;
         }
     }
 }

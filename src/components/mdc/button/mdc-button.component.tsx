@@ -1,14 +1,20 @@
-import { Component, Event, EventEmitter, h, Prop } from '@stencil/core';
-// import { MDCButton } from '@material/button';
-// import { MDCRipple } from '@material/ripple';
+import {
+  Component,
+  ComponentInterface,
+  Event,
+  EventEmitter,
+  h,
+  Prop,
+} from '@stencil/core';
+
 @Component({
   tag: 'co2-button',
   styleUrl: 'mdc-button.scss',
   shadow: true,
 })
-export class Co2Button {
+export class Co2Button implements ComponentInterface {
   /**
-   * HTML onBlur event
+   * HTML click event
    */
   @Event() scaleClick?: EventEmitter<any>;
 
