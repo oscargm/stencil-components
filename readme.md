@@ -5,6 +5,22 @@
 This is a custom components library created using [stenciljs](https://stenciljs.com/) and [materialUI](https://material.io/develop/web) sass mixins.
 The project is intended to be a seed to create a corporative components library and to be reused within the main web frameworks such as Angular, React and Vuejs.
 
+
+## Status of the project
+
+This project is currently being actively developed
+
+### Existing components
+
+- Custom components
+  - todo
+- Material components
+  - button
+  - ripple effect
+  - switch
+  - textarea
+  - typography
+
 ## Start developing
 
 ```bash
