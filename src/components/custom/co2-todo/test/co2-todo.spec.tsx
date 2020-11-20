@@ -23,7 +23,7 @@ describe('co2-todo', () => {
       components: [Co2Todo],
       html: `<co2-todo index="1" is-done="false" task="whatever"></co2-todo>`,
     });
-    console.log(page.root.shadowRoot.innerHTML);
+    // console.log(page.root.shadowRoot.innerHTML);
     expect(page.root).toEqualHtml(`
       <co2-todo index="1" is-done="false" task="whatever">
         <mock:shadow-root>
@@ -34,7 +34,7 @@ describe('co2-todo', () => {
           </div>
         </mock:shadow-root>
       </co2-todo>
-      
+
     `);
   });
   it('renders done todo with info', async () => {

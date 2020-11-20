@@ -15,6 +15,7 @@
   color: $co2-theme-default-typography-color;
   border-radius: $co2-theme-radius-3;
   box-sizing: border-box;
+  box-shadow: 3px 3px 4px 0px;
 }
 .todo-section {
   align-items: center;
@@ -26,7 +27,7 @@
 .todo-id {
   background-color: $co2-theme-primary;
   color: $co2-theme-default-typography-upon-primary;
-  padding: $co2-theme-padding-1 $co2-theme-padding-6;
+  padding: $co2-theme-padding-1 $co2-theme-padding-3;
   border-radius: $co2-theme-radius-3;
 }
 .todo-task {

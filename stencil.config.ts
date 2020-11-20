@@ -1,5 +1,6 @@
 import { Config } from '@stencil/core';
 import { sass } from '@stencil/sass';
+
 const { dirname, join } = require('path');
 
 export const config: Config = {
@@ -26,7 +27,7 @@ export const config: Config = {
       sourceMap: true,
       includePaths: [
         join(dirname(module.filename), 'node_modules'),
-        './src/variables.scss',
+        join(dirname(module.filename), './src/variables.scss'),
       ],
     }),
   ],
