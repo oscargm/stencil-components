@@ -1,2 +1,32 @@
+@use "sass:map";
 @use 'node_modules/@material/typography/mdc-typography';
 @use '@material/typography';
+@import '../../../variables.scss';
+
+.typography-margin-0 {
+  margin: $co2-theme-margin-0;
+}
+
+.typography-margin-1 {
+  margin: $co2-theme-margin-1 $co2-theme-margin-0;
+}
+
+.typography-margin-2 {
+  margin: $co2-theme-margin-2 $co2-theme-margin-0;
+}
+
+.typography-margin-3 {
+  margin: $co2-theme-margin-3 $co2-theme-margin-0;
+}
+
+.typography-margin-4 {
+  margin: $co2-theme-margin-4 $co2-theme-margin-0;
+}
+
+.typography-margin-5 {
+  margin: $co2-theme-margin-5 $co2-theme-margin-0;
+}
+
+.typography-margin-6 {
+  margin: $co2-theme-margin-6 $co2-theme-margin-0;
+}

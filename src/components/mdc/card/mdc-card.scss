@@ -1,0 +1,19 @@
+@use '@material/card/mdc-card';
+@use '@material/card';
+@use '@material/button/mdc-button';
+@use '@material/button';
+@use '@material/icon-button/mdc-icon-button';
+@use '@material/icon-button';
+@use '@material/elevation' as elevation;
+
+@import '../../../variables.scss';
+
+:host {
+  height: 350px;
+  width: 350px;
+  @include elevation.elevation(15);
+}
+
+.my-card-content {
+  padding: 16px;
+}

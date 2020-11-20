@@ -13,9 +13,11 @@ export class Co2Typography implements ComponentInterface {
    */
   @Prop() type: Typography = TypographyTypes.BODY_1;
 
+  @Prop() margin?: number = 0;
+
   render() {
     return (
-      <TypographyRenderer type={this.type}>
+      <TypographyRenderer type={this.type} margin={this.margin}>
         <slot />
       </TypographyRenderer>
     );

@@ -13,6 +13,8 @@ export namespace Components {
          */
         "isDisabled"?: boolean;
     }
+    interface Co2Card {
+    }
     interface Co2RippleEffect {
         /**
           * Whether or not the surface the ripple is acting upon is active
@@ -74,6 +76,7 @@ export namespace Components {
         "task": string;
     }
     interface Co2Typography {
+        "margin"?: number;
         /**
           * HTML type prop
          */
@@ -86,6 +89,12 @@ declare global {
     var HTMLCo2ButtonElement: {
         prototype: HTMLCo2ButtonElement;
         new (): HTMLCo2ButtonElement;
+    };
+    interface HTMLCo2CardElement extends Components.Co2Card, HTMLStencilElement {
+    }
+    var HTMLCo2CardElement: {
+        prototype: HTMLCo2CardElement;
+        new (): HTMLCo2CardElement;
     };
     interface HTMLCo2RippleEffectElement extends Components.Co2RippleEffect, HTMLStencilElement {
     }
@@ -119,6 +128,7 @@ declare global {
     };
     interface HTMLElementTagNameMap {
         "co2-button": HTMLCo2ButtonElement;
+        "co2-card": HTMLCo2CardElement;
         "co2-ripple-effect": HTMLCo2RippleEffectElement;
         "co2-switch": HTMLCo2SwitchElement;
         "co2-textarea": HTMLCo2TextareaElement;
@@ -136,6 +146,8 @@ declare namespace LocalJSX {
           * HTML click event
          */
         "onScaleClick"?: (event: CustomEvent<any>) => void;
+    }
+    interface Co2Card {
     }
     interface Co2RippleEffect {
         /**
@@ -210,6 +222,7 @@ declare namespace LocalJSX {
         "task"?: string;
     }
     interface Co2Typography {
+        "margin"?: number;
         /**
           * HTML type prop
          */
@@ -217,6 +230,7 @@ declare namespace LocalJSX {
     }
     interface IntrinsicElements {
         "co2-button": Co2Button;
+        "co2-card": Co2Card;
         "co2-ripple-effect": Co2RippleEffect;
         "co2-switch": Co2Switch;
         "co2-textarea": Co2Textarea;
@@ -229,6 +243,7 @@ declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
             "co2-button": LocalJSX.Co2Button & JSXBase.HTMLAttributes<HTMLCo2ButtonElement>;
+            "co2-card": LocalJSX.Co2Card & JSXBase.HTMLAttributes<HTMLCo2CardElement>;
             "co2-ripple-effect": LocalJSX.Co2RippleEffect & JSXBase.HTMLAttributes<HTMLCo2RippleEffectElement>;
             "co2-switch": LocalJSX.Co2Switch & JSXBase.HTMLAttributes<HTMLCo2SwitchElement>;
             "co2-textarea": LocalJSX.Co2Textarea & JSXBase.HTMLAttributes<HTMLCo2TextareaElement>;

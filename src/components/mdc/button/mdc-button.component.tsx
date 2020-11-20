@@ -5,7 +5,9 @@ import {
   EventEmitter,
   h,
   Prop,
+  Element,
 } from '@stencil/core';
+import { MDCRipple } from '@material/ripple';
 
 @Component({
   tag: 'co2-button',
@@ -13,6 +15,7 @@ import {
   shadow: true,
 })
 export class Co2Button implements ComponentInterface {
+  @Element() private element: HTMLElement;
   /**
    * HTML click event
    */
@@ -25,6 +28,14 @@ export class Co2Button implements ComponentInterface {
 
   handleClick(event) {
     this.scaleClick?.emit(event);
+  }
+
+  /**
+   * componentDidRender add ripple effect to the action buttons
+   */
+  componentDidRender() {
+    // const selector = '.mdc-button, .mdc-icon-button, .mdc-card__primary-action';
+    new MDCRipple(this.element.shadowRoot.querySelector('.mdc-button__ripple'));
   }
 
   render() {
@@ -40,7 +51,7 @@ export class Co2Button implements ComponentInterface {
             <slot />
           </span>
           <div class="mdc-button__touch"></div>
-          <co2-ripple-effect />
+          {/* <co2-ripple-effect /> */}
         </button>
       </div>
     );

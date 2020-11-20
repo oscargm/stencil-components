@@ -1,10 +1,10 @@
 import { h } from '@stencil/core';
 import { Typography, typographyTags } from './model';
 
-const getHtml = (type: Typography) => {
+const getHtml = (type: Typography, margin: number) => {
   const Tag = typographyTags.get(type);
   return (
-    <Tag class={`mdc-typography--${type}`}>
+    <Tag class={`mdc-typography--${type} typography-margin-${margin}`}>
       <slot />
     </Tag>
   );
@@ -12,9 +12,10 @@ const getHtml = (type: Typography) => {
 
 interface TypographyRendererProps {
   type: Typography;
+  margin: number;
 }
 
 export const TypographyRenderer = (props: TypographyRendererProps) => {
-  const { type } = props;
-  return getHtml(type);
+  const { type, margin } = props;
+  return getHtml(type, margin);
 };
