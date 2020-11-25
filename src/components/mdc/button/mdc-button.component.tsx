@@ -21,7 +21,7 @@ export class Co2Button implements ComponentInterface {
   /**
    * HTML disabled attribute
    */
-  @Prop({ reflect: true }) isDisabled?: boolean = false;
+  @Prop({ reflect: true }) isDisabled?: boolean;
 
   handleClick(event) {
     this.scaleClick?.emit(event);

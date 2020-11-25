@@ -7,11 +7,11 @@
 
 ## Properties
 
-| Property | Attribute | Description                             | Type      | Default |
-| -------- | --------- | --------------------------------------- | --------- | ------- |
-| `index`  | `index`   | Index prop                              | `number`  | `0`     |
-| `isDone` | `is-done` | isDone prop (checks or unchecks switch) | `boolean` | `false` |
-| `task`   | `task`    | Todo task text prop                     | `string`  | `''`    |
+| Property | Attribute | Description                             | Type      | Default     |
+| -------- | --------- | --------------------------------------- | --------- | ----------- |
+| `index`  | `index`   | Index prop                              | `number`  | `0`         |
+| `isDone` | `is-done` | isDone prop (checks or unchecks switch) | `boolean` | `undefined` |
+| `task`   | `task`    | Todo task text prop                     | `string`  | `''`        |
 
 
 ## Dependencies
