@@ -1,26 +1,42 @@
-const path = require('path');
-
+// const path = require('path');
 module.exports = {
   stories: ['../../src/**/*.stories.@(tsx)'],
-  addons: ['@storybook/addon-essentials'],
-  webpackFinal: async (config, { configType }) => {
-    // `configType` has a value of 'DEVELOPMENT' or 'PRODUCTION'
-    // You can change the configuration based on that.
-    // 'PRODUCTION' is used when building the static version of storybook.
-
-    // Make whatever fine-grained changes you need
-    // config.module.rules.push({
-    //   test: /\.scss$/,
-    //   use: ['style-loader', 'css-loader', 'sass-loader'],
-    //   include: path.resolve(__dirname, '../'),
-    // });
-    // config.resolve = {
-    //   alias: {
-    //     storybookConfig: path.resolve(__dirname),
+  addons: [
+    '@storybook/addon-essentials',
+    '@storybook/addon-links',
+    'storybook-readme/register',
+    // '@storybook/addon-storysource',
+    // {
+    //   name: '@storybook/addon-storysource',
+    //   options: {
+    //     loaderOptions: {
+    //       injectStoryParameters: false,
+    //       options: {
+    //         parser: 'typescript',
+    //         uglyCommentsRegex: [/^eslint-.*/, /^tslint-.*/, /^global.*/],
+    //       },
+    //       prettierConfig: {
+    //         printWidth: 160,
+    //         tabWidth: 2,
+    //         bracketSpacing: true,
+    //         trailingComma: 'es5',
+    //         singleQuote: true,
+    //       },
+    //     },
     //   },
-    // };
-
-    // Return the altered config
+    // },
+  ],
+  // decorators: ['storybook-readme/html'],
+  webpackFinal: async (config, { configType }) => {
+    config.module.rules.push({
+      test: /\.(js|jsx|ts|tsx)$/,
+      loader: require.resolve('babel-loader'),
+      options: {
+        presets: ['@babel/preset-react', '@babel/preset-typescript'],
+        plugins: ['@babel/plugin-syntax-jsx'],
+      },
+    });
+    config.resolve.extensions.push('.ts', '.tsx', '.js', '.jsx');
     return config;
   },
 };
