@@ -1,0 +1,6 @@
+{
+  "extends": "./tsconfig.json",
+  "target": "es2015",
+  "include": ["src", "**/*.stories.tsx"],
+  "exclude": ["node_modules"]
+}

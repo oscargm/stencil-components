@@ -1,4 +1,4 @@
-import { Component, ComponentInterface, h, Prop } from '@stencil/core';
+import { Component, ComponentInterface, h, Host, Prop } from '@stencil/core';
 import { TypographyTypes } from '../../mdc/typography/model';
 
 @Component({
@@ -24,27 +24,29 @@ export class Co2Todo implements ComponentInterface {
 
   render() {
     return (
-      <div class="todo">
-        {!!this.index ? (
+      <Host>
+        <div class="todo">
+          {!!this.index ? (
+            <co2-typography
+              type={TypographyTypes.CAPTION}
+              class="todo-section todo-id"
+            >
+              {this.index}
+            </co2-typography>
+          ) : null}
           <co2-typography
             type={TypographyTypes.CAPTION}
-            class="todo-section todo-id"
+            class="todo-section todo-task"
           >
-            {this.index}
+            {this.task}
           </co2-typography>
-        ) : null}
-        <co2-typography
-          type={TypographyTypes.CAPTION}
-          class="todo-section todo-task"
-        >
-          {this.task}
-        </co2-typography>
-        <co2-switch
-          label="is done?"
-          is-checked={this.isDone ? 'true' : 'false'}
-          class="todo-section todo-action"
-        ></co2-switch>
-      </div>
+          <co2-switch
+            label="is done?"
+            is-checked={this.isDone ? 'true' : 'false'}
+            class="todo-section todo-action"
+          ></co2-switch>
+        </div>
+      </Host>
     );
   }
 }

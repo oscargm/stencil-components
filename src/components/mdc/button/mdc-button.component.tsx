@@ -4,6 +4,7 @@ import {
   Event,
   EventEmitter,
   h,
+  Host,
   Prop,
 } from '@stencil/core';
 
@@ -21,7 +22,7 @@ export class Co2Button implements ComponentInterface {
   /**
    * HTML disabled attribute
    */
-  @Prop({ reflect: true }) isDisabled?: boolean = false;
+  @Prop({ reflect: true }) isDisabled?: boolean;
 
   handleClick(event) {
     this.scaleClick?.emit(event);
@@ -29,20 +30,22 @@ export class Co2Button implements ComponentInterface {
 
   render() {
     return (
-      <div class="mdc-touch-target-wrapper">
-        <button
-          class="mdc-button mdc-button--touch mdc-button--raised co2-button"
-          onClick={event => this.handleClick(event)}
-          disabled={this.isDisabled}
-        >
-          <div class="mdc-button__ripple"></div>
-          <span class="mdc-button__label">
-            <slot />
-          </span>
-          <div class="mdc-button__touch"></div>
-          <co2-ripple-effect />
-        </button>
-      </div>
+      <Host>
+        <div class="mdc-touch-target-wrapper">
+          <button
+            class="mdc-button mdc-button--touch mdc-button--raised co2-button"
+            onClick={event => this.handleClick(event)}
+            disabled={this.isDisabled}
+          >
+            <div class="mdc-button__ripple"></div>
+            <span class="mdc-button__label">
+              <slot />
+            </span>
+            <div class="mdc-button__touch"></div>
+            <co2-ripple-effect />
+          </button>
+        </div>
+      </Host>
     );
   }
 }

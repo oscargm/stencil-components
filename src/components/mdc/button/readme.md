@@ -7,9 +7,9 @@
 
 ## Properties
 
-| Property     | Attribute     | Description             | Type      | Default |
-| ------------ | ------------- | ----------------------- | --------- | ------- |
-| `isDisabled` | `is-disabled` | HTML disabled attribute | `boolean` | `false` |
+| Property     | Attribute     | Description             | Type      | Default     |
+| ------------ | ------------- | ----------------------- | --------- | ----------- |
+| `isDisabled` | `is-disabled` | HTML disabled attribute | `boolean` | `undefined` |
 
 
 ## Events
