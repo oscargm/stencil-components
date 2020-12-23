@@ -8,14 +8,11 @@
     "moduleResolution": "node",
     "module": "esnext",
     "target": "es2017",
+    "allowJs": true,
     // "noUnusedLocals": true,
     // "noUnusedParameters": true,
     "jsx": "react",
-    "jsxFactory": "h",
-    "baseUrl": "./src",
-    "paths": {
-      "storybookConfig/*": ["../config/storybook/*"]
-    }
+    "jsxFactory": "h"
   },
   "include": ["src", "typings"],
   "exclude": ["node_modules", "**/*.stories.tsx"]

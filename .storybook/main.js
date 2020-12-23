@@ -1,4 +1,4 @@
-// // const path = require('path');
+// const path = require('path');
 // module.exports = {
 //   stories: ['../../src/**/*.stories.@(tsx)'],
 //   addons: [
@@ -50,6 +50,9 @@ module.exports = {
     '@storybook/addon-a11y',
     '@storybook/addon-knobs',
     '@storybook/addon-viewport',
+    '@whitespace/storybook-addon-html',
+    '@storybook/addon-actions',
+    '@storybook/addon-docs',
   ],
   typescript: {
     check: false,
@@ -67,10 +70,22 @@ module.exports = {
     // 'PRODUCTION' is used when building the static version of storybook.
 
     // Make whatever fine-grained changes you need
+    config.resolve.alias = {
+      ...config.resolve.alias,
+      'sbconfig/': path.resolve(__dirname, '../.storybook/'),
+    };
     config.module.rules.push({
       test: /\.scss$/,
       use: ['style-loader', 'css-loader', 'sass-loader'],
       include: path.resolve(__dirname, '../src/variables.scss'),
+    });
+    config.module.rules.push({
+      test: /\.(js|jsx|ts|tsx)$/,
+      loader: require.resolve('babel-loader'),
+      options: {
+        presets: ['@babel/preset-react', '@babel/preset-typescript'],
+        plugins: ['@babel/plugin-syntax-jsx'],
+      },
     });
 
     // Return the altered config
