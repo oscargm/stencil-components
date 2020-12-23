@@ -1,20 +1,29 @@
-import { storiesOf } from '@storybook/html';
-import readme from './readme.md';
-storiesOf('Components/Textarea', module)
-  .addParameters({ notes: readme })
-  .add(
-    'Default',
-    (): string => `
-    <div style="width:100%">
-      <co2-textarea custom-placeholder="Some important todo"></co2-textarea>
-    </div>
-  `,
-  )
-  .add(
-    'With some value',
-    (): string => `
-    <div style="width:100%">
-      <co2-textarea custom-placeholder="Some important todo" value="Some value introduced by the user"></co2-textarea>
-    </div>
-  `,
-  );
+import * as React from 'react';
+import { boolean, text } from '@storybook/addon-knobs';
+import { action } from '@storybook/addon-actions';
+
+import { StencilComponent } from '../../../../.storybook/docs-components';
+import metadata from './metadata.json';
+
+export const states = () => {
+  const isDisabled = boolean('disabled', false);
+  const placeholder = text('placeholder', 'Custom placeholder');
+  const value = text('value', '');
+  const textArea = document.createElement('co2-textarea');
+  textArea.setAttribute('is-disabled', isDisabled ? 'true' : 'false');
+  textArea.setAttribute('custom-placeholder', placeholder);
+  textArea.setAttribute('value', value);
+  textArea.addEventListener('scaleChange', action('changed'));
+  textArea.addEventListener('scaleBlur', action('onBlur'));
+  return textArea;
+};
+
+export default {
+  title: 'Components/TextArea',
+  parameters: {
+    docs: {
+      page: () => <StencilComponent metadata={metadata as any} />,
+      source: { type: 'code' },
+    },
+  },
+};

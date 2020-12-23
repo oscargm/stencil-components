@@ -1,13 +1,16 @@
 import { Config } from '@stencil/core';
 import { sass } from '@stencil/sass';
-import { reactOutputTarget } from '@stencil/react-output-target';
+// import { reactOutputTarget } from '@stencil/react-output-target';
+import { postcss } from '@stencil/postcss';
+import autoprefixer from 'autoprefixer';
+import cssnano from 'cssnano';
 import { JsonDocs } from '@stencil/core/internal';
 import fs from 'fs';
 const { dirname, join } = require('path');
 
 export const config: Config = {
   namespace: 'co2-web-components',
-  buildEs5: true,
+  buildEs5: 'prod',
   outputTargets: [
     {
       type: 'dist',
@@ -56,5 +59,12 @@ export const config: Config = {
         join(dirname(module.filename), './src/variables.scss'),
       ],
     }),
+    postcss({
+      plugins: [autoprefixer(), cssnano()],
+    }),
   ],
+  extras: {
+    cssVarsShim: true,
+    shadowDomShim: false,
+  },
 };
